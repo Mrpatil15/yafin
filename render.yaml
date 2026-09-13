@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: yafin
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm --prefix server install && npm --prefix client install && npm --prefix client run build
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
